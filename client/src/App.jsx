@@ -30,12 +30,10 @@ function App() {
 
     if (!message) return;
 
-    // Add user message
     const newChat = [...chat, { role: "user", text: message }];
     setChat(newChat);
 
     try {
-      // const res = await fetch("http://localhost:5000/chat", {
       const res = await fetch("https://solid-robot-dgt0.onrender.com/chat", {
         method: "POST",
         headers: {

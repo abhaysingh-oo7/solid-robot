@@ -9,7 +9,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// ✅ OpenRouter setup
 const openai = new OpenAI({
   apiKey: process.env.OPENROUTER_API_KEY,
   baseURL: "https://openrouter.ai/api/v1",
@@ -129,7 +128,7 @@ app.post("/chat", async (req, res) => {
     console.log("User:", message);
 
     const completion = await openai.chat.completions.create({
-      model: "openai/gpt-3.5-turbo", // free/cheap model
+      model: "openai/gpt-3.5-turbo", 
       messages: [
         {
           role: "system",
